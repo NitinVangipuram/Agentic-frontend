@@ -71,41 +71,41 @@ const ChatSection = () => {
     switch (msg.subtype) {
       case "status":
         return (
-          <div key={idx} className={`${styles.message} ${styles.infoMessage}`}>
+          <div key={idx} className={`${styles.message} ${styles.agent} ${styles.infoMessage}`}>
             {msg.payload && Object.entries(msg.payload).map(([key, val])=>(
-              <span>{key}:{val}</span>
+              <span key={key}><strong>{key}:</strong> {val}</span>
             ))}
           </div>
         )
       case "step_started" || "step_completed":
         return (
-          <div key={idx} className={`${styles.message} ${styles.infoMessage}`}>
+          <div key={idx} className={`${styles.message} ${styles.agent} ${styles.infoMessage}`}>
             {msg && Object.entries(msg).map(([key, val])=>(
-              <span>{key}:{val}</span>
+              <span key={key}><strong>{key}:</strong> {val}</span>
             ))}
           </div>
         )
       case "info":
         return (
-          <div key={idx} className={`${styles.message} ${styles.infoMessage}`}>
+          <div key={idx} className={`${styles.message} ${styles.agent} ${styles.infoMessage}`}>
             {msg.text}
           </div>
         );
       case "success":
         return (
-          <div key={idx} className={`${styles.message} ${styles.successMessage}`}>
+          <div key={idx} className={`${styles.message} ${styles.agent} ${styles.successMessage}`}>
             {msg.text}
           </div>
         );
       case "error":
         return (
-          <div key={idx} className={`${styles.message} ${styles.errorMessage}`}>
+          <div key={idx} className={`${styles.message} ${styles.agent} ${styles.errorMessage}`}>
             {msg.text}
           </div>
         );
       case "code":
         return (
-          <div key={idx} className={`${styles.message} ${styles.codeMessage}`}>
+          <div key={idx} className={`${styles.message} ${styles.agent} ${styles.codeMessage}`}>
             <div className={styles.codeHeader}>Generated Code:</div>
             <SyntaxHighlighter
               language="python"
@@ -118,6 +118,55 @@ const ChatSection = () => {
         );
       default:
         return (
+          <div key={idx} className={`${styles.message} ${styles.agent}`}>
+            {msg.text}
+          </div>
+        );
+    }
+  };
+
+  const addHumanMessage = (text) => {
+    setMessages((prev) => [...prev, { type: "human", text }]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!userInput.trim()) return;
+
+    addHumanMessage(userInput);
+    call_agent();
+    setUserInput("");
+  };
+
+  return (
+    <div className={styles.chatContainer}>
+      <div className={styles.messages}>
+        {messages.map((msg, idx) => {
+          if (msg.type === "human") {
+            return (
+              <div key={idx} className={`${styles.message} ${styles.human}`}>
+                {msg.text}
+              </div>
+            );
+          }
+          return renderMessage(msg, idx);
+        })}
+      </div>
+
+      <form className={styles.inputArea} onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Type your message..."
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  );
+};
+
+export default ChatSection;
           <div key={idx} className={`${styles.message} ${styles.agent}`}>
             {msg.text}
           </div>
