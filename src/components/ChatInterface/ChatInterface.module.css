@@ -1,0 +1,173 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* space between left / center / right */
+  position: relative;
+  height: 60px;
+  background: #111;
+  color: white;
+  border-bottom: 2px solid #ff9800;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  padding: 0 1rem;
+}
+
+/* Sections */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  position: absolute;        /* keep perfectly centered */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-right {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;         /* push to the end */
+}
+
+/* Settings icon */
+.settingsIcon {
+  font-size: 28px;
+  color: #ffcc80;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.settingsIcon:hover {
+  transform: scale(1.1);
+  color: #ff9800;
+}
+
+/* Logo */
+.logo img {
+  width: auto;
+  margin: 0.1rem;
+}
+
+/* Buttons */
+.btn,
+.btnPrimary {
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn {
+  background: transparent;
+  color: #ffcc80;
+  border: 1px solid #ffcc80;
+}
+
+.btn:hover {
+  background: rgba(255, 152, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.btnPrimary {
+  background: #ff9800;
+  color: #111;
+}
+
+.btnPrimary:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
+
+.actions{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.logo img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.entirepage {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #121212;
+  color: #fff;
+}
+
+/* Grid below header */
+.page {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr; /* sidebar + main */
+  gap: 0;
+  height: 100%;
+}
+
+/* Sidebar */
+.ConfigSection {
+  background: #1c1c1c;
+  border-right: 2px solid #ff9800;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  width: 240px;
+  height: 100vh;
+}
+
+.ConfigSection.hidden {
+  width: 0;
+  border-right: none;
+}
+
+/* Main content */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* plots + chat */
+  overflow: hidden;
+  height: 100%;
+} 
+
+/* Sections */
+.PlotSection,
+.ChatSection {
+  background: #1a1a1a;
+  border: 0.1rem solid rgb(98, 96, 96);
+  padding: 1rem;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Responsive tweak */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr; /* stack plots & chat vertically */
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .header-center {
+    position: static;
+    transform: none;
+    margin: 0.5rem 0;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

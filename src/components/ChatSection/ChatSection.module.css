@@ -1,0 +1,165 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.message {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 80%;
+}
+
+.infoMessage {
+  background: #2c2c2c;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.successMessage {
+  background: #2e7d32;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.errorMessage {
+  background: #c62828;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.codeMessage {
+  background: #121212;
+  color: #fff;
+  align-self: flex-start;
+  border: 1px solid #333;
+  padding: 0.5rem;
+}
+
+.codeHeader {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ff9800;
+}
+
+.inputArea {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.inputArea input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #333;
+  background: #1c1c1c;
+  color: #fff;
+}
+
+.inputArea button {
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  border: none;
+  background: #ff9800;
+  color: #121212;
+  cursor: pointer;
+}
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.message {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 80%;
+}
+
+.infoMessage {
+  background: #2c2c2c;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.successMessage {
+  background: #2e7d32;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.errorMessage {
+  background: #c62828;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.codeMessage {
+  background: #121212;
+  color: #fff;
+  align-self: flex-start;
+  border: 1px solid #333;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.codeHeader {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ff9800;
+}
+
+.inputArea {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.inputArea input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #333;
+  background: #1c1c1c;
+  color: #fff;
+}
+
+.inputArea button {
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  border: none;
+  background: #ff9800;
+  color: #121212;
+  cursor: pointer;
+}
